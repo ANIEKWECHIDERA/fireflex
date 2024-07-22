@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class = "container">
+        <aside>
+            <div class = "sidebar">
+                <div class = "top">
+                    <h2 class = "underline"><strong>Navigate</strong></h2>
+                </div>
+
+                <a href = "#" class="active">
+                    <span class="material-icons-round">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href = "http://127.0.0.1:5500/hello%20world/HTML%20Dashboard/Explore.html#">
+                    <span class="material-icons-round">travel_explore</span>
+                    <h3>Explore</h3>
+                </a>
+                <a href = "http://127.0.0.1:5500/hello%20world/HTML%20Dashboard/C.M.M.A%20Eps.html">
+                    <span class="material-icons-round">video_library</span>
+                    <h3>C.M.M.A Eps</h3>
+                </a>
+
+                <div class = "middle">
+                    <h2 class = "underline"><strong>Stats</strong></h2>
+                </div>    
+
+                </a><a href = "http://127.0.0.1:5500/hello%20world/HTML%20Dashboard/Report.html">
+                    <span class="material-icons-round">summarize</span>
+                    <h3>Report</h3>
+                </a>  
+                
+                <div class = "button">
+                    <div class = "close" id="close-btn">
+                        <span class="material-icons-round">cancel</span>   
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <h1 class="while-squ">YouTube Videos Dashboard</h1>
+            <span id="menuBtn" class="material-icons-round">menu</span>
+
+            <div class="kpi-box">
+
+               <div class="red-box">
+                    <div class="number-icon">
+                        <h2 id="videoCount">N/A</h2>
+                        <!--<span class="material-icons-round">
+                            movie
+                        </span>-->
+                    </div>
+                <h3>Videos</h3>
+               </div>
+
+                <div class="red-box">
+                    <div class="number-icon">
+                        <h2 id="totalViews">N/A</h2>
+                        <!--<span class="material-icons-round">
+                        visibility
+                        </span>-->
+                    </div>
+                    <h3>Total Views</h3>
+                </div>
+                <div class="red-box">
+                    <div class="number-icon">
+                        <h2 id="subscribers"></h2>
+                        <!--<span class="material-icons-round">
+                        visibility
+                        </span>-->
+                    </div>
+                    <h3>Subscribers</h3>
+                </div>
+
+            </div>
+
+            <div class="main-container">
+                <div class="column-chart-box" id="chartContainer" style="position: relative";>
+                    <div class="column-chart-box-header">
+                        <div>
+                            <h2>Top 10 Performing Videos</h2>
+                            <h3 class="muted-text">By Views</h3>
+                        </div>
+                        <div class="filter-button">
+                            <button id="filterBtnTop10"><span class="material-icons-round">tune</span>
+                            </button>
+                            <div class="filter-options">
+                                <p>Filter By:</p>
+                                <div class="sort-option">
+                                    <div class="input-h3">
+                                        <input type="radio" name="sort" value="LF"> Long Form Videos
+                                    </div>
+                                    <div class="input-h3">
+                                        <input type="radio" name="sort" value="SF"> Short Form Videos
+                                    </div>
+                                </div>
+                                <!-- <button id="applyFilter">OK</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="top10Chart" width="300" height="400"></canvas>    
+                </div>
+                <div>
+                    <div class="column-chart-box">
+                        <div class="column-chart-box-header">
+                            <div>
+                                <h2>Number of published Videos (Excluding Shorts)</h2>
+                                <h3 class="muted-text">Per Time</h3>
+                            </div>
+                            <!-- <div class="filter-button">
+                                <button id="filterBtnPublished"><span class="material-icons-round">tune</span>
+                                </button>
+                                <div class="filter-options">
+                                    <p>Filter By:</p>
+                                    <div class="sort-option">
+                                        <div class="input-h3">
+                                            <input type="checkbox" name="sort" value="viewsAsc"> Long Form Videos
+                                        </div>
+                                        <div class="input-h3">
+                                            <input type="checkbox" name="sort" value="viewsDesc"> Short Form Videos
+                                        </div>
+                                    </div>
+                                    <button id="applyFilter">OK</button>
+                                </div>
+                            </div> -->
+                        </div>
+                        <canvas id="publishedChart"></canvas>  
+                    </div>
+                    <div class="Douchnut-chart-box">
+                        <div class="column-chart-box-header">
+                            <div>
+                                <h2>Video Distribution</h2>
+                                <!-- <div class="filter-button">
+                                    <button id="filterBtnDistribution"><span class="material-icons-round">tune</span>
+                                    </button>
+                                    <div class="filter-options">
+                                        <p>Filter By:</p>
+                                        <div class="sort-option">
+                                            <label><h3>Views:</h3></label>
+                                            <div class="input-h3">
+                                                <input type="checkbox" name="sort" value="viewsAsc"> Long Form Videos
+                                            </div>
+                                            <div class="input-h3">
+                                                <input type="checkbox" name="sort" value="viewsDesc"> Short Form Videos
+                                            </div>
+                                        </div>
+                                        <button id="applyFilter">OK</button>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="do-do-chart">
+                            <canvas class="doughnut-chart" id="distributionnChart"></canvas>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+                <!-- <div class="content-container">
+                    <div class="content">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen>
+                        </iframe>
+                        <button class="prev-button">&#10094;</button>
+                        <button class="next-button">&#10095;</button>
+                    </div>
+                    <div class="content-title"><h2>Video Title</h2>
+                    </div>
+                </div>
+                <div class="content-stats">
+
+                    <div class="views">
+                        <h3>Views</h3>
+                        <div class="red-box1">
+                            <h2>500</h2>
+                        </div>
+                    </div>
+
+                    <div class="time-published">
+                        <h3>Time Published</h3>
+                        <div class="red-box1">
+                            <h2>2 months Ago</h2>
+                        </div> 
+                    </div>
+
+                    <div class="watch-video">
+                        <h3>Watch Video</h3>
+                        <div class="video-box">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="watch-video-btn" target="_blank"></a>
+                            <span class="material-icons-round">
+                                smart_display
+                            </span>
+                        </div>
+                    </div> 
+
+                </div> -->
+        </main>
+    </div>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Open filter options for top 10 videos chart
+            const filterBtn = document.getElementById('filterBtnTop10');
+            const filterOptions = document.querySelector('#chartContainer .filter-options');
+            const applyFilter = document.getElementById('applyFilter');
+            
+            if (filterBtn) { // Check if the element exists before adding event listeners
+                filterBtn.addEventListener('click', function () {
+                    filterOptions.style.display = filterOptions.style.display === 'block' ? 'none' : 'block';
+                    filterBtn.classList.toggle('open');
+                    
+                });
+            }
+        
+            if (applyFilter) { // Check if the element exists before adding event listeners
+                applyFilter.addEventListener('click', function () {
+                    const selectedSort = document.querySelector('input[name="sort"]:checked');
+                    console.log(selectedSort.value)
+                    if (selectedSort) {
+                        const videoType = selectedSort.value; // 'LF' or 'SF'
+                        updateChart(videoType);
+                        filterOptions.style.display = 'none';
+                        filterBtn.classList.remove('open');
+                    } else {
+                        alert('Please select a sort option.');
+                    }
+                });
+            }
+        });
+        
+    </script> -->
+    <script src="Dashboardscript.js"></script>
+</body>
+</html>
