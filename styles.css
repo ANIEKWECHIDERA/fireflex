@@ -72,10 +72,11 @@ small{
 }
 
 .profile-photo {
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 10.8rem;
+    height: 10.8rem;
     border-radius: 50%;
     overflow: hidden;
+    margin-bottom: 2rem;
 }
 
 .muted-text{
@@ -84,7 +85,7 @@ small{
 }
 
 p{
-    color: #333;
+    color: #fff8f8;
 }
 
 b{
@@ -101,6 +102,16 @@ aside{
     
 }
 
+.text{
+    line-height: 30px;
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
 
 /* Sidebar Styling */
 .sidebar {
@@ -135,6 +146,8 @@ aside{
     position: relative;
     height: 3.7rem;
     transition: all 200ms ease;
+    background-color: #444;
+    margin-top: 1rem;
 }
 
 .sidebar a:hover {
@@ -145,6 +158,7 @@ aside{
 }
 
 .sidebar a span{
+    
     font-size: 1.6rem;
     transition: all 200ms ease;
 }
@@ -163,7 +177,8 @@ aside{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 100px;
+    flex-direction: column;
+    margin-top: 50px;
 }
 
 .middle {
@@ -207,6 +222,7 @@ aside{
 .underline {
     position: relative;
     display: inline-block;
+    margin-bottom: 20px;
 }
 
 .underline::after {
@@ -258,7 +274,7 @@ main .while-squ{
     margin-bottom: 2rem;
     border-radius: 10px;
     position: relative;
-    
+    padding: 10px;
 }
 
 .kpi-box{
@@ -425,7 +441,6 @@ button:focus {
     width: 50px;
     height: 39px;
     align-items: center;
-    
 }
 
 #filterBtnPublished{
@@ -990,6 +1005,7 @@ iframe {
         box-shadow:  10px 5px 10px rgba(160, 19, 19, 0.226);
         left: -50%;
         animation: showMenu 200ms ease forwards;
+        height: 100%;
     }
 
     @keyframes showMenu{
@@ -998,11 +1014,29 @@ iframe {
         }
     }
 
+    @keyframes hideMenu {
+        to {
+            left: -50%;
+        }
+    }
+
+
+    .sidebar.show {
+        display: block;
+        animation: showMenu 200ms ease forwards;
+    }
+    
+    .sidebar.hide {
+        animation: hideMenu 200ms ease forwards;
+    }
+
     .close{
         display: block;
         
 
     }
+
+
 
     #close-btn{
 
@@ -1252,7 +1286,7 @@ iframe {
     width: 100%;
     height: 64vh;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.034); */
     overflow: hidden;
     position: relative;
 }
@@ -1272,7 +1306,7 @@ iframe {
     padding: 15px;
     text-align: center;
     display: flex;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.382);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.382); */
     transition: all 200ms ease;
     cursor: pointer;
 }
@@ -1433,4 +1467,134 @@ div.episode-box > div.explore-header > div > div > div:nth-child(2) > label, div
 .content-card .content{
     /* background-color: #f50606; */
     padding-top: 10px;
+}
+
+
+
+/* ---------------- CURIOSITY MADE ME ASK SECTION----------- */
+
+
+
+
+.popular-episodes-section{
+    padding: 20px;
+    width: 100%;
+    padding-left: 0px;
+}
+
+.banner{
+    background-color: #fff;
+    border-radius: 10px;
+    height: 137px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner img{
+    height: 137px;
+    width: 200px;
+}
+
+.popular-eps-card{
+    background-color: white;
+    padding: 10px;
+    margin-top: 2rem;
+    /* position: fixed; */
+    z-index: 1;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.episode-box{
+    margin-top: 2.5rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 67vh;
+    padding: 10px;
+    background-color: #D5CFD2;
+}
+
+.episode-card{
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.034);
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+
+body > div > aside.popular-episodes-section > div.episode-box > div:nth-child(1){
+    margin-top: -10px;
+}
+
+.episode-card:hover{
+    box-shadow: 0 4px 8px rgba(243, 19, 19, 0.226);
+    transition: all 200ms ease;
+    margin-left: 8px;
+}
+
+.episode-card img{
+    flex-shrink: 0;
+    height:auto;
+    width: 100px;
+    border-radius:5px;
+}
+
+
+
+.episode-card h3{
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.episode-card h3:hover{
+    color: #252627;
+}
+
+.thumbnail-vid{
+    display: flex;
+    gap: 20px;
+}
+
+.ep-stats{
+    display: flex;
+    margin-top: 10px;
+    gap: 20px;
+    font-size: 12px;
+}
+
+.ep-stats p{
+    color: #7B7B76;
+}
+
+#viewMoreBtn{
+    border: 1px solid rgba(255, 0, 0, 0.164);
+    color: #333;
+    margin-left: 150px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 768px){
+
+    #viewMoreBtn{
+        margin-left: 250px; 
+    }
+
+    .popular-episodes-section{
+        margin-top: 20px;
+        grid-row: 2 / 3;
+        grid-column: 2 / 3 ;
+        padding: 0px;
+    
+    }
+
+    .container{
+        grid-template-rows: 131rem auto;
+    }
+
 }

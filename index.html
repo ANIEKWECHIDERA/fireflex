@@ -15,37 +15,25 @@
     <div class = "container">
         <aside>
             <div class = "sidebar">
-                <div class = "top">
-                    <h2 class = "underline"><strong>Navigate</strong></h2>
-                </div>
-
-                <a href = "#" class="active">
-                    <span class="material-icons-round">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href = "https://aniekwechidera.github.io/fireflex/Explore.html">
-                    <span class="material-icons-round">travel_explore</span>
-                    <h3>Explore</h3>
-                </a>
-                <a href = "http://127.0.0.1:5500/hello%20world/HTML%20Dashboard/C.M.M.A%20Eps.html">
-                    <span class="material-icons-round">video_library</span>
-                    <h3>C.M.M.A Eps</h3>
-                </a>
-
-                <div class = "middle">
-                    <h2 class = "underline"><strong>Stats</strong></h2>
-                </div>    
-
-                </a><a href = "http://127.0.0.1:5500/hello%20world/HTML%20Dashboard/Report.html">
-                    <span class="material-icons-round">summarize</span>
-                    <h3>Report</h3>
-                </a>  
-                
                 <div class = "button">
                     <div class = "close" id="close-btn">
                         <span class="material-icons-round">cancel</span>   
                     </div>
                 </div>
+                <div class = "top">
+                    <img class="profile-photo" src="https://yt3.googleusercontent.com/ytc/AIdro_lsZ62s6y1R0O6gjRe8uyav3iVJYD99ydOerQJSw_SkOw=s900-c-k-c0x00ffffff-no-rj" alt="Isbea_u profile photo">
+                    <h2 class = "underline"><strong>Isbea U</strong></h2>
+                </div>
+                <div class="text">
+                <p >Adebayo Ridwan Abidemi A.K.A Isbea U is a former musician turned skit maker turned actor turned Youtuber. <br>
+                He is know for affilialiting with other successful skit makers and comedians like Mr Macaroni, Craze Clown, Nasty Blaq just to name a few. <br>
+                He recently started a comic series on his YouTube account 'Curiosity Made Me Ask' and since then he has featured a host of Nigerian celebrities.
+                </p>
+                </div>
+                </a><a href = "https://www.youtube.com/@Isbae_u" class="about">
+                    <span class="material-icons-round">ondemand_video</span>
+                    <h3>Visit YouTube Channel</h3>
+                </a>  
             </div>
         </aside>
 
@@ -119,22 +107,6 @@
                                 <h2>Number of published Videos (Excluding Shorts)</h2>
                                 <h3 class="muted-text">Per Time</h3>
                             </div>
-                            <!-- <div class="filter-button">
-                                <button id="filterBtnPublished"><span class="material-icons-round">tune</span>
-                                </button>
-                                <div class="filter-options">
-                                    <p>Filter By:</p>
-                                    <div class="sort-option">
-                                        <div class="input-h3">
-                                            <input type="checkbox" name="sort" value="viewsAsc"> Long Form Videos
-                                        </div>
-                                        <div class="input-h3">
-                                            <input type="checkbox" name="sort" value="viewsDesc"> Short Form Videos
-                                        </div>
-                                    </div>
-                                    <button id="applyFilter">OK</button>
-                                </div>
-                            </div> -->
                         </div>
                         <canvas id="publishedChart"></canvas>  
                     </div>
@@ -167,44 +139,19 @@
                     </div> 
                 </div>
             </div>
-                <!-- <div class="content-container">
-                    <div class="content">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button class="prev-button">&#10094;</button>
-                        <button class="next-button">&#10095;</button>
-                    </div>
-                    <div class="content-title"><h2>Video Title</h2>
-                    </div>
-                </div>
-                <div class="content-stats">
-
-                    <div class="views">
-                        <h3>Views</h3>
-                        <div class="red-box1">
-                            <h2>500</h2>
-                        </div>
-                    </div>
-
-                    <div class="time-published">
-                        <h3>Time Published</h3>
-                        <div class="red-box1">
-                            <h2>2 months Ago</h2>
-                        </div> 
-                    </div>
-
-                    <div class="watch-video">
-                        <h3>Watch Video</h3>
-                        <div class="video-box">
-                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="watch-video-btn" target="_blank"></a>
-                            <span class="material-icons-round">
-                                smart_display
-                            </span>
-                        </div>
-                    </div> 
-
-                </div> -->
         </main>
+        <aside class="popular-episodes-section">
+            <div class="banner">
+                <img src="images/banner.png" alt="Curiosity Made Me Ask Icon">
+            </div>
+            <div class="popular-eps-card">
+                <h1>Popular Episodes</h1>
+            </div>
+            <div class="episode-box" id="episodeBox">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+            <button id="viewMoreBtn">View More</button>
+        </aside>
     </div>
     <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {

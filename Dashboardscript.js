@@ -63,7 +63,7 @@ const dataset = {
     kpis: {
         videos: 310,
         totalViews: '47M',
-        subscribers: '359k'
+        subscribers: '372k'
     },
     top10Videos: [
         { title: 'Video 1', views: 1000000, type: 'LF' },
@@ -437,3 +437,75 @@ const closeBtn = document.getElementById('close-btn')
   closeBtn.addEventListener('click', function(){
     sideBar.style.display = 'none'
   });
+
+
+  
+ // Update with your data source URL
+
+// Function to fetch data
+async function fetchData() {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+}
+
+// Function to parse view count
+function parseViews(views) {
+    if (views.includes('M')) {
+        return parseFloat(views.replace('M views', '')) * 1000000;
+    } else if (views.includes('K')) {
+        return parseFloat(views.replace('K views', '')) * 1000;
+    } else {
+        return parseFloat(views.replace(' views', ''));
+    }
+}
+
+// Function to render videos
+function renderVideos(videos) {
+    const episodeBox = document.getElementById('episodeBox');
+    episodeBox.innerHTML = ''; // Clear existing content
+
+    videos.forEach(video => {
+        const episodeCard = document.createElement('div');
+        episodeCard.classList.add('episode-card');
+
+        episodeCard.innerHTML = `
+          <div class="thumbnail-vid">
+            <img src="${video["Thumbnail Link"]}" alt="thumbnail">
+            <h3>${video["Video TItle"]}</h3>
+          </div>
+          <div class="ep-stats">
+              <p>Views: ${video["Number of Views"]}</p>
+              <p>•</p>
+              <p>${video["Time Posted"]}</p>
+          </div>
+        `;
+
+        episodeBox.appendChild(episodeCard);
+    });
+}
+
+// Function to initialize the page
+async function initializePage() {
+    const data = await fetchData();
+
+    const filteredVideos = data.filter(video => video["Video TItle"].includes("CURIOSITY"));
+
+    // Sort videos by views in descending order and take the top 10
+    const sortedVideos = filteredVideos.sort((a, b) => {
+        const aViews = parseViews(a["Number of Views"]);
+        const bViews = parseViews(b["Number of Views"]);
+        return bViews - aViews;
+    }).slice(0, 10);
+
+    renderVideos(sortedVideos);
+}
+
+// Event listener for the "View More" button
+document.getElementById('viewMoreBtn').addEventListener('click', () => {
+    window.location.href = 'https://www.youtube.com/@Isbae_u';
+});
+
+// Initialize the page on DOM content loaded
+document.addEventListener('DOMContentLoaded', initializePage);
+  
