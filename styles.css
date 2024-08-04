@@ -28,6 +28,7 @@ body {
     display: flex;
     justify-content: flex-end;
     color: #555;
+    margin: 0 auto;
 }
 
 
@@ -97,7 +98,7 @@ b{
 }
 
 aside{
-    height: 100vh;
+    height: 100%;
     width: 300px;
     
 }
@@ -116,7 +117,7 @@ aside{
 /* Sidebar Styling */
 .sidebar {
     width: 300px;
-    height: 100vh;
+    height: 100%;
     background-color: #333;
     color: white;
     padding: 20px;
@@ -1581,20 +1582,34 @@ body > div > aside.popular-episodes-section > div.episode-box > div:nth-child(1)
 
 @media screen and (max-width: 768px){
 
+    main{
+        width: 100%;
+        position: relative;
+        right: 15px;
+    }
+
     #viewMoreBtn{
-        margin-left: 250px; 
+        margin: 20px 213px 0; 
     }
 
     .popular-episodes-section{
-        margin-top: 20px;
+        /* margin-top: 20px; */
         grid-row: 2 / 3;
         grid-column: 2 / 3 ;
-        padding: 0px;
-    
+        margin-right: 20px;
+        padding-right: 28px;
     }
+
+    
 
     .container{
         grid-template-rows: 131rem auto;
+        margin: 0 auto;
+        width: 100%;
     }
 
+    body > div > main > div.main-container > div:nth-child(2) > div.Douchnut-chart-box{
+        height: 100%;
+        margin-top: 1rem;
+    }
 }

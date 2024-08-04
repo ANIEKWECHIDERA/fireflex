@@ -394,6 +394,83 @@ fetch(url)
             })
             .catch(error => console.error('Error fetching JSON:', error));
 
+
+// Views Distribution Chart
+// Function to convert view counts from string to number
+function convertViews(viewString) {
+  viewString = viewString.replace(' views', '');
+  if (viewString.includes('K')) {
+      viewString = viewString.replace('K', '');
+      return parseFloat(viewString) * 1000;
+  } else if (viewString.includes('M')) {
+      viewString = viewString.replace('M', '');
+      return parseFloat(viewString) * 1000000;
+  } else {
+      return parseInt(viewString);
+  }
+}
+
+fetch(url)
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+      }
+      return response.json();
+  })
+  .then(data => {
+      let curiosityViews = 0;
+      let otherViews = 0;
+
+      data.forEach(video => {
+          const views = convertViews(video["Number of Views"]);
+          if (video["Video TItle"].toUpperCase().includes("CURIOSITY")) {
+              curiosityViews += views;
+          } else {
+              otherViews += views;
+          }
+      });
+
+      // Create the chart
+      const viewsDistributionChartCtx = document.getElementById('viewsDistributionnChart').getContext('2d');
+      new Chart(viewsDistributionChartCtx, {
+          type: 'doughnut',
+          data: {
+              labels: ['Curiosity Series', 'Other Videos'],
+              datasets: [{
+                  label: 'Views Distribution',
+                  data: [curiosityViews, otherViews],
+                  backgroundColor: ['rgba(180, 235, 234, 0.582', 'rgba(254, 5, 34, 0.582)'],
+                  borderColor: ['rgba(235, 235, 234, 1)', 'rgba(231, 76, 60, 1)'],
+                  borderWidth: 1,
+                  hoverBackgroundColor: ['rgba(150, 210, 234, 1)', 'rgba(254, 5, 34)']
+              }]
+          },
+          options: {
+              maintainAspectRatio: false,
+              responsive: true,
+              plugins: {
+                  legend: {
+                      display: true,
+                      position: 'right',
+                      labels: {
+                          boxWidth: 20,
+                          padding: 20,
+                          usePointStyle: true,
+                      }
+                  },
+                  tooltip: {
+                      callbacks: {
+                          label: function (context) {
+                              return `${context.raw.toLocaleString()} views`;
+                          }
+                      }
+                  }
+              }
+          }
+      });
+  })
+  .catch(error => console.error('Error fetching JSON:', error));
+
 // const filterBtn = document.getElementById('filterBtnDistribution');
 // const filterOptions = document.querySelector('body > div > main > div.main-container > div:nth-child(2) > div.Douchnut-chart-box > div > div > div > div');
 // const applyFilter = document.getElementById('applyFilter');
