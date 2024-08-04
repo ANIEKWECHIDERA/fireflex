@@ -135,7 +135,7 @@
         </main>
         <aside class="popular-episodes-section">
             <div class="banner">
-                <img src="images/banner.png" alt="Curiosity Made Me Ask Icon">
+                <img src="Images/banner.png" alt="Curiosity Made Me Ask Icon">
             </div>
             <div class="popular-eps-card">
                 <h1>Popular Episodes</h1>
@@ -146,38 +146,6 @@
             <button id="viewMoreBtn">View More</button>
         </aside>
     </div>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Open filter options for top 10 videos chart
-            const filterBtn = document.getElementById('filterBtnTop10');
-            const filterOptions = document.querySelector('#chartContainer .filter-options');
-            const applyFilter = document.getElementById('applyFilter');
-            
-            if (filterBtn) { // Check if the element exists before adding event listeners
-                filterBtn.addEventListener('click', function () {
-                    filterOptions.style.display = filterOptions.style.display === 'block' ? 'none' : 'block';
-                    filterBtn.classList.toggle('open');
-                    
-                });
-            }
-        
-            if (applyFilter) { // Check if the element exists before adding event listeners
-                applyFilter.addEventListener('click', function () {
-                    const selectedSort = document.querySelector('input[name="sort"]:checked');
-                    console.log(selectedSort.value)
-                    if (selectedSort) {
-                        const videoType = selectedSort.value; // 'LF' or 'SF'
-                        updateChart(videoType);
-                        filterOptions.style.display = 'none';
-                        filterBtn.classList.remove('open');
-                    } else {
-                        alert('Please select a sort option.');
-                    }
-                });
-            }
-        });
-        
-    </script> -->
     <script src="Dashboardscript.js"></script>
 </body>
 </html>
