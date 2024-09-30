@@ -63,7 +63,7 @@ const dataset = {
     kpis: {
         videos: 310,
         totalViews: '47M',
-        subscribers: '372k'
+        subscribers: '472k'
     },
     top10Videos: [
         { title: 'Video 1', views: 1000000, type: 'LF' },
