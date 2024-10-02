@@ -63,19 +63,19 @@ const dataset = {
     kpis: {
         videos: 310,
         totalViews: '47M',
-        subscribers: '472k'
+        subscribers: '473k'
     },
     top10Videos: [
         { title: 'Video 1', views: 1000000, type: 'LF' },
         { title: 'Video 2', views: 900000, type: 'SF' },
         { title: 'Video 3', views: 900088, type: 'SF' },
         { title: 'Video 4', views: 900088, type: 'SF' },
-        // ... more data
+       
     ],
     publishedVideos: [
         { time: '1 week ago', count: 10, type: 'LF' },
         { time: '1 month ago', count: 20, type: 'SF' },
-        // ... more data
+       
     ],
     videoDistribution: {
         LF: 200,
