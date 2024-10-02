@@ -79,18 +79,14 @@ const dataset = {
     ],
     videoDistribution: {
         LF: 200,
-        SF: 110
+        SF: 8
     }
 };
 
 // Update KPI values
-
-
 document.getElementById('subscribers').innerText = dataset.kpis.subscribers;
 
 // Top 10 Videos Chart
-
-
 let top10Chart = null;
 
 function updateChart(videoType) {
